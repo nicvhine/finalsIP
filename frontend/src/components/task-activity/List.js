@@ -121,15 +121,18 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
                         onChange={e => onEditTask(task.id, taskToUpdate.title, taskToUpdate.description, e.target.value)}
                         className="bg-gray-100 text-justify py-2 "
                       >
+                      {/* Updating Status: Pending, In Progress, or Completed */}
                         <option value="Pending">Pending</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Completed">Completed</option>
                       </select>
                     ) : (
+                      {/* Status Updated */}
                       task.status
                     )}
                   </td>
                   <td className="w-1/6">
+                    {/* Save Button */}
                     {taskToUpdate && taskToUpdate.id === task.id ? (
                       <>
                         <button className="bg-slate-600 w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#374357]" onClick={handleSaveEdit}>Save</button>
@@ -139,7 +142,7 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
                     ) : (
                       <>
                         <button className="bg-slate-600 w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#374357]" onClick={() => onEditTask(task.id, task.title, task.description, task.status)}>Edit</button>
-                        <button className="bg-[#FF4D4D] w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#b93737d5]" onClick={() => onDeleteTask(task.id)}>Delete</button>  
+                        <button className="bg-[#FF4D4D] w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#b93737d5]" onClick={() => onDeleteTask(task.id)}>Delete</button>
                       </>
                     )}
                   </td>
