@@ -126,7 +126,7 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
                         <option value="Completed" class="completed" >Completed</option>
                       </select>
                     ) : (
-                      <span className={`px-3 py-1 rounded-2xl inline-block mb-2 lg:mb-0 ${task.status === 'Pending' ? 'bg-[#ffe079]' : task.status === 'In Progress' ? 'bg-[#4cad61]' : 'bg-[#4675bd]'}`}>
+                      <span className={`px-3 py-1 rounded-2xl inline-block mb-2 lg:mb-0 ${task.status === 'Pending' ? 'bg-[#ffe079]' : task.status === 'In Progress' ? 'bg-[#4675bd]' : 'bg-[#4cad61]'}`}>
                         {task.status}
                       </span>
                     

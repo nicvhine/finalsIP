@@ -14,10 +14,10 @@ body {
 }
 
 .in-progress {
-  color: #4675bd;
+  color: #4cad61;
 }
 
 .completed {
-  color: #4cad61;
+  color: #4675bd;
 }
 
