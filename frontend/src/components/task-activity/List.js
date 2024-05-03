@@ -134,13 +134,13 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
                   </td>
                   <td className="w-1/6">
                     {taskToUpdate && taskToUpdate.id === task.id ? (
-                      <>//Save Button
+                      <>
                         <button className="bg-slate-600 w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#374357]" onClick={handleSaveEdit}>Save</button>
                         <button className="bg-[#5a5c5f] w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#4c5057]" onClick={onCancelEdit}>Cancel</button>
                         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                       </>
                     ) : (
-                      <>//Delete Button
+                      <>
                         <button className="bg-slate-600 w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#374357]" onClick={() => onEditTask(task.id, task.title, task.description, task.status)}>Edit</button>
                         <button className="bg-[#FF4D4D] w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#b93737d5]" onClick={() => onDeleteTask(task.id)}>Delete</button>  
                       </>
