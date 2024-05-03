@@ -18,6 +18,7 @@ const Main = () => {
     fetchTasks();
   }, []);
 
+  //fetch task from the server
   const fetchTasks = async () => {
     try {
       const response = await axios.get(`${SERVER_URL}/api/tasks`);
