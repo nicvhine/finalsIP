@@ -11,14 +11,18 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
 
   const handleSaveEdit = () => { 
     if (!taskToUpdate.title.trim() || !taskToUpdate.description.trim()) { //check to see if fields are empty
+      console.log("Empty fields");
       setErrorMessage("Title and description cannot be empty."); 
       return;
     }
-
     setErrorMessage(""); //removes the error  message 
     onSaveEdit(taskToUpdate);
   };
 
+  const handleCancelEdit = () => {
+    onCancelEdit();
+    setErrorMessage("");
+  }
   const handleSortByTitle = () => {
     setSortBy("title");
     setSortDirection(prevDirection => (prevDirection === "asc" ? "desc" : "asc")); //toggle sort direction between asc and desc
@@ -136,7 +140,7 @@ const List = ({ tasks, taskToUpdate, onEditTask, onSaveEdit, onCancelEdit, onDel
                     {taskToUpdate && taskToUpdate.id === task.id ? (
                       <>
                         <button className="bg-slate-600 w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#374357]" onClick={handleSaveEdit}>Save</button>
-                        <button className="bg-[#5a5c5f] w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#4c5057]" onClick={onCancelEdit}>Cancel</button>
+                        <button className="bg-[#5a5c5f] w-full lg:w-32 rounded-md font-medium my-2 mx-2 py-2 text-white hover:bg-[#4c5057]" onClick={handleCancelEdit}>Cancel</button>
                         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                       </>
                     ) : (
