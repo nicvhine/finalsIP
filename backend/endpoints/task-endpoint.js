@@ -34,7 +34,11 @@ router.delete('/tasks/:id', (req, res) => {
     const taskId = req.params.id;
     taskRepo.deleteTask(taskId, (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Failed to delete task' });
+            if (err.message && err.message === 'Task not found') {
+                res.status(404).json({ error: 'Task not found' });
+            } else {
+                res.status(500).json({ error: 'Failed to delete task' });
+            }
         } else {
             res.json({ message: 'Task deleted successfully' });
         }
@@ -58,7 +62,11 @@ router.put('/tasks/:id', (req, res) => {
 
     taskRepo.updateTask(taskId, title, description, lowercaseStatus, (err, result) => {
         if (err) {
-            res.status(500).json({ error: 'Failed to update task' });
+            if (err.message && err.message === 'Task not found') {
+                res.status(404).json({ error: 'Task not found' });
+            } else {
+                res.status(500).json({ error: 'Failed to update task' });
+            }
         } else {
             res.json({ message: 'Task updated successfully' });
         }
